@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HelpVNWin</string>
+    <string name="register">New user? <u>Create account</u></string>
+    <string name="login"></string>
 </resources>

@@ -10,6 +10,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -28,6 +29,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     EditText usernameET, emailET, passwordET;
     Button registerBTN;
+    TextView loginTV;
 
     FirebaseAuth auth;
     DatabaseReference reference;
@@ -40,12 +42,22 @@ public class RegisterActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Register");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        auth = FirebaseAuth.getInstance();
 
         usernameET = findViewById(R.id.et_username_register);
         emailET = findViewById(R.id.et_email_register);
         passwordET = findViewById(R.id.et_password_register);
         registerBTN = findViewById(R.id.btn_register);
+        loginTV = findViewById(R.id.tv_login);
+
+        loginTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
 
         registerBTN.setOnClickListener(new View.OnClickListener() {
             @Override
