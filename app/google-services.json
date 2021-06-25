@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "629139823770",
+    "project_id": "helpvnwin",
+    "storage_bucket": "helpvnwin.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:629139823770:android:35c288864b8c059a181323",
+        "android_client_info": {
+          "package_name": "com.example.helpvnwin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "629139823770-0njlofn94idlvsla59926gl0iboot9fq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzWznanD5LAaA_yr8pn166LeAdEnXG7IY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "629139823770-0njlofn94idlvsla59926gl0iboot9fq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
