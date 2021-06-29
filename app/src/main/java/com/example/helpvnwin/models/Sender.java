@@ -1,5 +1,5 @@
+package com.example.helpvnwin.models;
 
-package aes;
 
 import java.util.List;
 import java.util.Vector;
@@ -7,17 +7,14 @@ import java.util.Vector;
 
 public class Sender extends Account{
     
-    List<String> listOfKeys  = new Vector<String>();
+    private List<String> listOfKeys  = new Vector<String>();
 
     public Sender() {
         super();
     }
-    public Sender(String name){
-        super(name);
-    }
-    
-    
-    
+    public Sender(String id, String username, String imageURL) {
+        super(id, username, imageURL);
+    }    
     
     public String compress(String message){
         listOfKeys.add("f3key");
@@ -33,9 +30,8 @@ public class Sender extends Account{
     public void send(String message, Account F){
         String cipher = compress(message);
         
-        String log = String.format("Send %s from %s to %s", cipher, this.name, F.name);
+        String log = String.format("Send %s from %s to %s", cipher, this.username, F.username);
         
-       
         F.box  =  cipher;
         System.out.println(log);
     }

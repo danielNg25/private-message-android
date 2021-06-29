@@ -5,9 +5,9 @@ public class run {
     public static void main(String[] args) {
         Sender Park  = new Sender("Park");
         Sender Lee = new Sender("Lee");
-        Account F1 = new Account("F1");
-        Account F2 = new Account("F2");
-        Account F3 = new Account("F3");
+        Account F1 = new User("F1");
+        Account F2 = new User("F2");
+        Account F3 = new User("F3");
         
         Park.send("Hello", F1);
         
