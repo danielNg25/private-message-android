@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.helpvnwin.R;
 import com.example.helpvnwin.adapters.MessageAdapter;
+import com.example.helpvnwin.models.AES;
 import com.example.helpvnwin.models.Chat;
 import com.example.helpvnwin.models.Firebase;
 import com.example.helpvnwin.models.User;
@@ -87,6 +88,7 @@ public class MessageActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String msg = text_send.getText().toString();
                 if (!msg.equals("")){
+                    msg = AES.encrypt(msg, AES.key);
                     sendMessage(fuser.getUid(), userID, msg);
                 }
                 else{
@@ -139,6 +141,7 @@ public class MessageActivity extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Chat chat = dataSnapshot.getValue(Chat.class);
                     if (chat.getReceiver().equals(myid)&&chat.getSender().equals(userid)|| chat.getReceiver().equals(userid) && chat.getSender().equals(myid)){
+                        chat.setMessage(AES.decrypt(chat.getMessage(), AES.key));
                         mchat.add(chat);
                     }
                 }
