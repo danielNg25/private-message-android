@@ -1,30 +1,19 @@
 package com.example.helpvnwin.models;
-import java.util.List;
-import java.util.Vector;
-
 
 public class User {
     private String id;
     private String username;
     private String imageURL;
-    private AES engine;
-    private String box;
+    private String status;
 
-
-    public User(String id, String username, String imageURL) {
+    public User(String id, String username, String imageURL, String status) {
         this.id = id;
+        this.status = status;
         this.username = username;
         this.imageURL = imageURL;
-        this.engine = new AES();
-    }
-    public User(String username){
-        this.username = username;
-        this.engine = new AES();
     }
 
-    public User(){
-        this.engine = new AES();
-    }
+    public User(){}
 
     public String getId() {
         return id;
@@ -49,9 +38,12 @@ public class User {
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
-    public void forward(String message, User receiver){
-        String log = String.format("Forward %s from %s to %s", message, this.username, receiver.username);
-        receiver.box = message;
-        System.err.println(log);
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
