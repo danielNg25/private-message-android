@@ -4,7 +4,10 @@ package com.example.helpvnwin.models;
 import android.os.Build;
 
 import java.security.MessageDigest;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 import android.util.Base64;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
@@ -15,7 +18,7 @@ import javax.crypto.spec.IvParameterSpec;
 
 public class AES {
     public static String key = "truongkhanghoang";
-    
+    public static List<User> userList = new ArrayList<>();
     public static String encrypt(String strToEncrypt, String myKey) {
       try {
             MessageDigest sha = MessageDigest.getInstance("SHA-1");
