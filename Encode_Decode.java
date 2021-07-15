@@ -11,7 +11,66 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 
+public class New {
+      public String[] forward(String message, String myKey){
+            String decrypted = engine.decrypt(message, myKey);
+            System.out.println(decrypted);
+            String[] arrOfStr = decrypted.split("::");
+            if(arrOfStr[-1] == "end"){
+                //stop
+            }else{
+                // chuyen tiep
+            }
+            return arrOfStr;
+      }
+      public String compress(String message, List<String> names){
+            listOfKeys.add("lee");
+            listOfKeys.add("f3key");
+            listOfKeys.add("f2key");
+            listOfKeys.add("f1key");
+            String cipher = message.concat("::end");
+            Integer i = 0;
+            for(String key: listOfKeys){
+                cipher = engine.encrypt(cipher, key);
+                if(i<3){
+                    cipher = cipher.concat("::"+names.get(i));
+                }
+                i+=1;
+                
+            }
+            return cipher;
+      }
+          
+      public static void main(String[] args) {
+            Sender Park  = new Sender("Pak");
+            Account Lee = new Account("Lee");
+            Account F1 = new Account("Fi1");
+            Account F2 = new Account("Fi2");
+            Account F3 = new Account("Fi3");
+            
+            List<String> names = new Vector<>();
+            
+            names.add("Lee");
+            names.add("Fi3");
+            names.add("Fi2");
+            
+            String t = Park.compress("hello", names);
+    
+            String[] next1 = F1.forward(t, "f1key");
+            
+            
+            String[] next2 = F2.forward(next1[0], "f2key");
+            
+            String[] next3 = F3.forward(next2[0], "f3key");
+            
+            String[] next4 = Lee.forward(next3[0], "lee");
+          
+            
+        }
+        
 
+
+}
 
 public class Encode_Decode {
     
