@@ -48,11 +48,12 @@ public class Encode_Decode {
             SecretKeySpec secretKey = new SecretKeySpec(key, "AES");
             Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            outputs[0] = new String(cipher.doFinal(Base64.getDecoder().decode(parts[0])));
             if (len > 2) {
             	outputs[1] = new String(cipher.doFinal(Base64.getDecoder().decode(parts[len-2])));
+            	outputs[0] = "";
             }
             else {
+            	outputs[0] = new String(cipher.doFinal(Base64.getDecoder().decode(parts[0])));
             	outputs[1] = new String("end");
             }
             return outputs;
@@ -60,5 +61,47 @@ public class Encode_Decode {
             System.out.println(e.toString());
       }
       return null;
-    }   
+    }
+/*    
+    public String[] output(String str_nameToDecrypt, String myKey) {
+    	try {
+    		String parts[] = str_nameToDecrypt.split(":");
+    		int len = parts.length;
+    		String[] outputs = new String[2];
+    		while (len > 1) {
+    			String temp = null;
+    			for (int i = 0;i < len;i++) {
+    				temp = temp + ":" + parts[i];
+    			}
+    			outputs = this.decrypt(temp, myKey);
+    			len--;
+    			System.out.println(outputs[0]);
+    			return outputs;
+    		}
+    	} catch (Exception e) {
+    		System.out.println(e.toString());
+    	}
+		return null;
+    }
+*/ 
+    public static void main(String[] args) {
+      String secretKey = "keykey";
+      String originalString = "This is a plain message";
+      String[] list_name = {"Alice","f1","f2","Bob"};
+        
+      Encode_Decode testAES = new Encode_Decode();
+      String encryptedString = testAES.encrypt(originalString, secretKey, list_name);
+      System.out.println("Encrypt: " + encryptedString);
+      String[] parts = encryptedString.split(":");
+      int len = parts.length;
+      while (len > 1) {
+			String temp = parts[0];
+			for (int i = 1; i < len; i++) {
+				temp = temp + ":" + parts[i];
+			}
+			String[] outputs = testAES.decrypt(temp, secretKey);
+			len--;
+			System.out.println(outputs[1]);
+		}
+    }
 }
