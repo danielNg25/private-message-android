@@ -11,10 +11,13 @@ public class Chat {
         this.receiver = receiver;
         this.message = message;
         this.isseen = isseen;
+
     }
 
     public Chat() {
     }
+
+
 
     public String getSender() {
         return sender;

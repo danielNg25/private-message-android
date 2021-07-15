@@ -90,13 +90,13 @@ public class NewMessageActivity extends AppCompatActivity {
                 }
 
                 if (isExist){
-                    Toast.makeText(NewMessageActivity.this, username, Toast.LENGTH_SHORT).show();
+
                     Intent intent = new Intent(NewMessageActivity.this, MessageActivity.class);
                     intent.putExtra("userid", chosenUserID);
                     startActivity(intent);
                 }
                 else{
-                    Toast.makeText(NewMessageActivity.this, "Username doesn't exist!", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });

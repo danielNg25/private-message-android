@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HelpVNWin</string>
+    <string name="app_name">Help VN Win</string>
     <string name="register">New user? <u>Create account</u></string>
     <string name="login"></string>
 </resources>
